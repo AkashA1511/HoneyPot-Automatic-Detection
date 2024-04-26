@@ -12,25 +12,20 @@
 } */
 
 .App {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: align; /* Align text to the left for JSON format */
-  padding: 100px;
-  max-width: auto; /* Adjust maximum width as needed */
-  width: auto; /* Set width to auto to fit content */
-  max-height: auto; /* Limit maximum height to 80% of viewport height */
-  overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+  text-align: align; 
+  max-width: auto; 
+  width: auto; 
+  max-height: 100%; 
+  overflow-y: auto; 
   background-color: #282c34;
   color: white; /* Text color */
-  border: 1px solid #ccc; /* Optional border */
-  border-radius: 5px; /* Optional border radius */
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
 }
 
 pre {
-  white-space: pre-wrap; /* Preserve line breaks and wrap long lines */
-  overflow-wrap: break-word; /* Wrap long words */
+  white-space: pre-wrap; 
+  overflow-wrap: break-word; 
 }
 
 .App-logo {
