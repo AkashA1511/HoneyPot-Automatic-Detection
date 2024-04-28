@@ -97,7 +97,7 @@ const Popup = () => {
   };
 
   return (
-    <div className="App">
+    <div className="App" style={{textAlign: "center"}}>
       <header className="App-header">
         <h1>HoneyPot Extension</h1>
         <form onSubmit={handleSubmit}>

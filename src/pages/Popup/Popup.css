@@ -1,25 +1,11 @@
-/* .App {
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  text-align: center;
-  height: 200%;
-  padding: 10px;
-
-  background-color: #282c34;
-} */
-
 .App {
   text-align: align; 
   max-width: auto; 
   width: auto; 
   max-height: 100%; 
   overflow-y: auto; 
-  background-color: #282c34;
+  background-color: #153448;
   color: white; /* Text color */
-  border: 1px solid #ccc; 
   border-radius: 5px; 
 }
 
