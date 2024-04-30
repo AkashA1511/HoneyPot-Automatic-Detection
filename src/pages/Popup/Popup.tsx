@@ -1,67 +1,5 @@
-// When we want all json content from the api call
-
-
-// import React, { useState } from 'react';
-// import './Popup.css';
-
-// const Popup = () => {
-//   const [address, setAddress] = useState('');
-//   const [apiData, setApiData] = useState(null);
-
-//   const handleAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-//     setAddress(event.target.value);
-//   };
-  
-//   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-//     event.preventDefault();
-//     console.log('Address submitted:', address);
-    
-//     // Send message to background script with the entered address
-//     chrome.runtime.sendMessage({ action: "callApi", address: address }, function(response) {
-//       if (response.success) {
-//         setApiData(response.data);
-//       } else {
-
-//         // console.error("Error---->",response);
-//         console.error(response.error);
-//       }
-//     });
-//   };
-
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <h1>HoneyPot Extension</h1>
-//         <form onSubmit={handleSubmit}>
-//           <div>
-//             <label htmlFor="address">Smart Contract Address:</label>
-//             <input
-//               type="text"
-//               id="address"
-//               value={address}
-//               onChange={handleAddressChange}
-//               placeholder="Paste your address here"
-//               required
-//             />
-//           </div>
-//           <button type="submit">Submit</button>
-//         </form>
-//         {apiData && (
-//           <div>
-//             <h2>Overview in JSON </h2>
-//             <pre>{JSON.stringify(apiData, null, 2)}</pre>
-//           </div>
-//         )}
-//       </header>
-//     </div>
-//   );
-// };
-
-// export default Popup;
-
 
 // extracting content from json file 
-
 import React, { useState } from 'react';
 import './Popup.css';
 
@@ -97,7 +35,7 @@ const Popup = () => {
   };
 
   return (
-    <div className="App">
+    <div className="App" style={{textAlign: "center"}} >
       <header className="App-header">
         <h1>HoneyPot Extension</h1>
         <form onSubmit={handleSubmit}>
@@ -114,10 +52,13 @@ const Popup = () => {
           </div>
           <button type="submit">Submit</button>
         </form>
-        {/* Displaying extracted information */}
+         
+         {/* extracted data fro json file */}
+
         {apiData && (
           <div>
             <h2>Contract Overview</h2>
+            {/* <pre>{JSON.stringify(apiData, null, 2)}</pre> */}
             <p>Risk: {risk}</p>
             <p>Risk Level: {riskLevel}</p>
             <p>Token Name: {tokenName}</p>
@@ -130,3 +71,4 @@ const Popup = () => {
 };
 
 export default Popup;
+

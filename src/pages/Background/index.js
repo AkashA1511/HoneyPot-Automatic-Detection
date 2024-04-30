@@ -1,8 +1,6 @@
 console.log('This is the background page.');
 console.log('Here API will work with the content script');
 
-
-
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === "callApi") {
         const queryParams = new URLSearchParams({ address: request.address });
@@ -24,29 +22,34 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 
-// Quick Hell API
+
+
+// de.fi API It check contract address is new or not 
+// this scanner API gives risky label for new address 
+
+// console.log('This is the background page.');
+// console.log('Here API will work with the content script');
 
 // chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-//   console.log('request', request);
-//   if (request.action === "callApi") {
-//     fetch(`https://quillcheck-api/api/v1/tokens/information/${request.address}?chainId=1`, {
-//       method: 'GET',
-//       headers: {
-//         'x-api-key': 'sQbPe5L8mc6jYozA3rf3v4qZAsOoAOVz97NEEHGt',
-//       }
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//       sendResponse({ success: true, data });
-//     })
-//     .catch(error => {
-//       sendResponse({ success: false, error: error.message });
-//     });
-
-//     // Return true to indicate that sendResponse will be called asynchronously
-//     return true;
-//   }
+//     if (request.action === "callApi") {
+//         const queryParams = new URLSearchParams({ address: request.address });
+//         fetch('https://public-api.de.fi/graphql' + queryParams, {
+//             method: 'GET',
+//             headers: {
+//                 'X-API-KEY': 'f56cf4c58b8a440c9ec5bbb923105660'
+//             }
+//         })
+//         .then(response => response.json())
+//         .then(data => {
+//             sendResponse({ success: true, data });
+//         })
+//         .catch(error => {
+//             sendResponse({ success: false, error: error.message });
+//         });
+//         return true;
+//     }
 // });
+
 
   
 
