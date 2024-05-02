@@ -1,6 +1,7 @@
 // console.log('This is the background page.');
 // console.log('Here API will work with the content script');
 
+//
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === "checkToken") {
       const queryParams = new URLSearchParams({ address: request.tokenAddress });
@@ -21,10 +22,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     }
   });
   
-
-
-
-
 
 
 
