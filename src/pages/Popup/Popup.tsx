@@ -54,11 +54,11 @@ const Popup = () => {
   }, []);
 
   const isUniswapUrl = (url) => {
-    return url.includes("app.uniswap.org/explore/tokens/ethereum/");
+    return url.includes("app.uniswap.org/explore/tokens/base/");
   };
 
   const extractTokenAddress = (url) => {
-    const regex = /ethereum\/(0x[a-fA-F0-9]{40})/;
+    const regex = /base\/(0x[a-fA-F0-9]{40})/;
     const match = url.match(regex);
     return match ? match[1] : null;
   };
@@ -89,7 +89,7 @@ const Popup = () => {
             <p>Risk: {risk}</p>
             <p>Risk Level: {riskLevel}</p>
             <p>Token Name: {tokenName}</p>
-            <p>Is Honeypot: {isHoneypot ? 'Yes' : 'No'}</p>
+            <p style={{ color: isHoneypot? 'red' : 'green' ,fontWeight: 'bold',}}>Is Honeypot: {isHoneypot ? 'Yes' : 'No'}</p>
           </div>
         )}
       </header>
@@ -98,4 +98,6 @@ const Popup = () => {
 };
 
 export default Popup;
+
+
 
