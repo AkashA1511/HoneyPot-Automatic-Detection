@@ -54,11 +54,11 @@ const Popup = () => {
   }, []);
 
   const isUniswapUrl = (url) => {
-    return url.includes("app.uniswap.org/explore/tokens/base/");
+    return url.includes("app.uniswap.org/explore/tokens/base/") || url.includes("app.uniswap.org/explore/tokens/ethereum/");
   };
 
   const extractTokenAddress = (url) => {
-    const regex = /base\/(0x[a-fA-F0-9]{40})/;
+    const regex = /(0x[a-fA-F0-9]{40})/;
     const match = url.match(regex);
     return match ? match[1] : null;
   };
