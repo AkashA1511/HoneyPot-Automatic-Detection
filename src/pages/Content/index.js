@@ -25,3 +25,4 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     const match = url.match(regex);
     return match ? match[1] : null;
   }
+

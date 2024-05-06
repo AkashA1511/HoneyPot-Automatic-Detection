@@ -1,0 +1,26 @@
+Input CSS
+
+.App input[type="text"] {
+  width: 80%; /* Adjusted width for better fit */
+  padding: 10px; /* Increased padding for comfort */
+  margin-bottom: 20px; /* Added bottom margin for spacing */
+  border: 2px solid #61dafb; /* Light blue border for visibility */
+  border-radius: 5px; /* Rounded corners for modern look */
+  outline: none; /* Removes focus outline for cleaner look */
+  transition: border-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+
+
+
+
+.App {
+  text-align: center;
+  max-height: 100vh; /* Adjusted to viewport height for better responsiveness */
+  overflow-y: auto;
+  background-color: rgb(73, 13, 162); /* A darker shade for contrast */
+  color: white;
+  border-radius: 10px; /* Increased for a softer look */
+  padding: 20px; /* Added padding for spacing */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
+}

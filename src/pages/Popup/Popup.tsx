@@ -2,6 +2,7 @@
 // working on both but in uniswap we are directly putting that address in address bar
 import React, { useState, useEffect } from 'react';
 import './Popup.css';
+import './tailwind.css';
 
 const Popup = () => {
   const [address, setAddress] = useState('');
@@ -53,9 +54,23 @@ const Popup = () => {
     });
   }, []);
 
+  // const isUniswapUrl = (url) => {
+  //   return url.includes("app.uniswap.org/explore/tokens/base/") || url.includes("app.uniswap.org/explore/tokens/ethereum/") || url.includes("etherscan.io/token/") || url.includes("bscscan.com/token/");
+  // };
+
+
   const isUniswapUrl = (url) => {
-    return url.includes("app.uniswap.org/explore/tokens/base/") || url.includes("app.uniswap.org/explore/tokens/ethereum/");
-  };
+  const prefixes = [
+    "app.uniswap.org/explore/tokens/base/",
+    "app.uniswap.org/explore/tokens/ethereum/",
+    "etherscan.io/token/",
+    "bscscan.com/token/",
+    "blastscan.io/token/"
+  ];
+
+  return prefixes.some(prefix => url.includes(prefix));
+};
+
 
   const extractTokenAddress = (url) => {
     const regex = /(0x[a-fA-F0-9]{40})/;
@@ -66,16 +81,18 @@ const Popup = () => {
   return (
     <div className="App" style={{ textAlign: "center" }}>
       <header className="App-header">
-        <h1>HoneyPot Extension</h1>
+      {/* <div className="shine">Honeypot Extension</div> */}
+        <h1 className="">HoneyPot Extension</h1>
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="address">Enter Token Address:</label>
+            {/* <label htmlFor="address">Enter Token Address:</label> */}
             <input
               type="text"
               id="address"
+              className="input"
               value={address}
               onChange={handleAddressChange}
-              placeholder="Paste or type token address here"
+              placeholder="Enter Token address"
               required
             />
           </div>
@@ -83,7 +100,7 @@ const Popup = () => {
         </form>
 
         {/* Display the token information */}
-        {apiData && (
+        {/* {apiData && (
           <div>
             <h2>Contract Overview</h2>
             <p>Risk: {risk}</p>
@@ -91,13 +108,36 @@ const Popup = () => {
             <p>Token Name: {tokenName}</p>
             <p style={{ color: isHoneypot? 'red' : 'green' ,fontWeight: 'bold',}}>Is Honeypot: {isHoneypot ? 'Yes' : 'No'}</p>
           </div>
+        )} */}
+
+        {apiData && (
+          <div className="contract-overview">
+            <h2>Contract Overview</h2>
+            <div className="overview-item">
+              <span className="label">Risk:</span>
+              <span className={`value ${isHoneypot ? 'risk-high' : 'risk-low'}`}>{risk}</span>
+            </div>
+            <div className="overview-item">
+              <span className="label">Risk Level:</span>
+              <span className="value">{riskLevel}</span>
+            </div>
+            <div className="overview-item">
+              <span className="label">Token Name:</span>
+              <span className="value">{tokenName}</span>
+            </div>
+            <div className="overview-item">
+              <span className="label">Honeypot:</span>
+              <span className={`value ${isHoneypot ? 'risk-high' : 'risk-low'}`}>{isHoneypot ? 'Yes' : 'No'}</span>
+            </div>
+          </div>
         )}
+
+
       </header>
     </div>
   );
 };
 
 export default Popup;
-
 
 
